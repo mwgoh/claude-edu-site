@@ -88,37 +88,39 @@ export default async function LessonPage({ params }) {
       </aside>
 
       <div className="order-1 min-w-0 lg:order-2">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="font-mono text-xs text-accent-strong">
-              {lesson.duration}
-            </p>
-            <h1 className="mt-1 text-3xl font-bold text-foreground">
-              {lesson.title}
-            </h1>
-            <p className="mt-2 text-muted">{lesson.summary}</p>
-          </div>
-          {claims ? (
-            <MarkCompleteButton
-              moduleSlug={moduleSlug}
-              lessonSlug={lessonSlug}
-              initialDone={initialDone}
-            />
-          ) : (
-            <Link
-              href={`/login?next=/curriculum/${moduleSlug}/${lessonSlug}`}
-              className="shrink-0 rounded-md border border-border px-4 py-2 text-sm text-muted hover:border-accent hover:text-accent-strong"
-            >
-              로그인하고 진도 저장하기
-            </Link>
-          )}
+        <div>
+          <p className="font-mono text-xs text-accent-strong">
+            {lesson.duration}
+          </p>
+          <h1 className="mt-1 text-3xl font-bold text-foreground">
+            {lesson.title}
+          </h1>
+          <p className="mt-2 text-muted">{lesson.summary}</p>
         </div>
 
         <div className="mt-8 border-t border-border pt-8">
           <Markdown>{lesson.content}</Markdown>
         </div>
 
-        <div className="mt-12 flex items-center justify-between border-t border-border pt-6 text-sm">
+        <div className="mt-6 flex justify-end">
+          {claims ? (
+            <MarkCompleteButton
+              moduleSlug={moduleSlug}
+              lessonSlug={lessonSlug}
+              initialDone={initialDone}
+              size="sm"
+            />
+          ) : (
+            <Link
+              href={`/login?next=/curriculum/${moduleSlug}/${lessonSlug}`}
+              className="shrink-0 rounded-md border border-border px-3 py-1.5 text-xs text-muted hover:border-accent hover:text-accent-strong"
+            >
+              로그인하고 진도 저장하기
+            </Link>
+          )}
+        </div>
+
+        <div className="mt-6 flex items-center justify-between border-t border-border pt-6 text-sm">
           {previous ? (
             <Link
               href={`/curriculum/${previous.moduleSlug}/${previous.slug}`}

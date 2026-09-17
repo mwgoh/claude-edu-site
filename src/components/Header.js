@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/actions/auth";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/curriculum", label: "커리큘럼" },
@@ -39,6 +40,7 @@ export default async function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           {claims ? (
             <>
               <Link

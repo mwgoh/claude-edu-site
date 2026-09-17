@@ -24,7 +24,7 @@ export default function StarterRepoPage() {
             <p className="mt-2 text-sm text-muted">
               아래 명령으로 실습용 저장소를 로컬에 복제하세요.
             </p>
-            <pre className="mt-4 overflow-x-auto rounded-md border border-border bg-background p-4 font-mono text-sm text-[#c9d1d9]">
+            <pre className="mt-4 overflow-x-auto rounded-md border border-border bg-[#0a0c0f] p-4 font-mono text-sm text-[#c9d1d9]">
               <code>{`git clone ${repoUrl}\ncd $(basename ${repoUrl} .git)\nclaude`}</code>
             </pre>
             <a
